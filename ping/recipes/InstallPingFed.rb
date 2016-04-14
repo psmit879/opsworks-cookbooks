@@ -21,7 +21,7 @@ remote_file '/var/ping/pingfederate-8.1.2.zip' do
 end
 
 execute 'extract_ping' do
-  command 'unzip pingfederate-8.1.2.zip -d /var'
+  command 'unzip pingfederate-8.1.2.zip -d /var/ping'
   cwd '/var/ping'
 end
 

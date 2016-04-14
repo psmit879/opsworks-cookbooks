@@ -1,5 +1,3 @@
-execute 'mkdir /home/ec2-user'
-
 package ['wget','perl','ntpdate','bind-utils']
 
 execute 'yum update -y'

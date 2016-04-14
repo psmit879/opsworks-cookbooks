@@ -12,7 +12,7 @@ directory '/var/pingfederate' do
 end
 
 remote_file '/var/pingfederate/pingfederate-8.1.2.zip' do
-  source 'https://www.pingidentity.com/content/dam/pic/downloads/software/servers/pingfederate-8.1.2.zip'
+  source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/pingfederate-8.1.2.zip'
   owner 'ec2-user'
   group 'ec2-user'
   mode '0755'

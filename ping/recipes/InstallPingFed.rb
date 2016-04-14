@@ -1,6 +1,6 @@
 execute 'yum update -y'
 
-package 'java'
+package 'java-1.8.0-openjdk'
 
 package 'unzip'
 

@@ -18,6 +18,13 @@ directory '/var/ping' do
   action :create
 end
 
+directory '/home/pingfed' do
+  owner 'pingfed'
+  group 'pingfed'
+  mode '0775'
+  action :create
+end
+
 remote_file '/var/ping/pingfederate-8.1.2.zip' do
   source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/pingfederate-8.1.2.zip'
   owner 'pingfed'
@@ -103,3 +110,5 @@ script 'start_service' do
 	service pingfed start
   	EOH
 end
+
+ldap.properties

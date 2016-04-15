@@ -1,3 +1,5 @@
+include_recipe "s3_file"
+
 execute 'yum update -y'
 
 package 'java-1.8.0-openjdk'

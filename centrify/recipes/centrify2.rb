@@ -15,8 +15,8 @@ script 'join_domain' do
 	sed -i 's/CentrifyDC_krb5=/CentrifyDC_krb5="U"/g' centrifydc-install.cfg
 	./install-express.sh -n
 	sed -i 's/# dns.sweep.pattern:.*/dns.sweep.pattern: t5,u5,u10,t10,u10,u10/g' /etc/centrifydc/centrifydc.conf
-	sed -i 's/# pam.allow.users:.*/pam.allow.users: file:\/etc\/centrifydc\/users.allow/g' /etc/centrifydc/centrifydc.conf
-	sed -i 's/# pam.allow.groups:.*/pam.allow.groups: file:\/etc\/centrifydc\/groups.allow/g' /etc/centrifydc/centrifydc.conf
+	sed -i 's@# pam.allow.users:.*@pam.allow.users: file:\/etc\/centrifydc\/users.allow@g' /etc/centrifydc/centrifydc.conf
+	sed -i 's@# pam.allow.groups:.*@pam.allow.groups: file:\/etc\/centrifydc\/groups.allow@g' /etc/centrifydc/centrifydc.conf
 	touch /etc/centrifydc/users.allow
 	touch /etc/centrifydc/groups.allow
 	echo smith_p | tee -a /etc/centrifydc/users.allow

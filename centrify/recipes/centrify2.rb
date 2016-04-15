@@ -17,8 +17,8 @@ script 'join_domain' do
 	sed -i 's/# dns.sweep.pattern:.*/dns.sweep.pattern: t5,u5,u10,t10,u10,u10/g' /etc/centrifydc/centrifydc.conf
 	sed -i 's/# pam.allow.users:.*/pam.allow.users: file:\/etc\/centrifydc\/users.allow/g' /etc/centrifydc/centrifydc.conf
 	sed -i 's/# pam.allow.groups:.*/pam.allow.groups: file:\/etc\/centrifydc\/groups.allow/g' /etc/centrifydc/centrifydc.conf
-	sudo touch /etc/centrifydc/users.allow
-	sudo touch /etc/centrifydc/groups.allow
+	touch /etc/centrifydc/users.allow
+	touch /etc/centrifydc/groups.allow
 	echo smith_p | tee -a /etc/centrifydc/users.allow
 	echo SecurityUsers | tee -a /etc/centrifydc/groups.allow
 	echo 'smith_p ALL=(ALL:ALL) ALL'|tee -a /etc/sudoers

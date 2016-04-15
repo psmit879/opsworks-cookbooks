@@ -24,6 +24,7 @@ remote_file '/var/ping/pingfederate-8.1.2.zip' do
   group 'pingfed'
   mode '0775'
   action :create
+  not_if { ::File.exists?('/var/ping/pingfederate-8.1.2.zip') }
 end
 
 execute 'extract_ping' do

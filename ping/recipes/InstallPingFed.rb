@@ -94,6 +94,23 @@ file '/etc/rc.d/init.d/pingfed' do
   action :create
 end
 
+remote_file '/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip' do
+  source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/pingfederate-data-04-14-2016.zip'
+  owner 'pingfed'
+  group 'pingfed'
+  mode '0775'
+  action :create
+  not_if { ::File.exists?('/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip') }
+end
+
+remote_file '/pingfederate/server/default/conf/pingfederate.lic' do
+  source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/PingFederate.78200.Development.lic'
+  owner 'pingfed'
+  group 'pingfed'
+  mode '0775'
+  action :create
+  not_if { ::File.exists?('/pingfederate/server/default/conf/pingfederate.lic') }
+end
 
 script 'start_service' do
   interpreter "bash"
@@ -110,5 +127,3 @@ script 'start_service' do
 	service pingfed start
   	EOH
 end
-
-ldap.properties

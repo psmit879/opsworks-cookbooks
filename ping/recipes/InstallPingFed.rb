@@ -107,7 +107,7 @@ s3_file '/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip' d
   not_if { ::File.exists?('/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip') }
 end
 
-s3_file '/pingfederate/server/default/conf/pingfederate.lic' do
+s3_file '/var/ping/pingfederate/server/default/conf/pingfederate.lic' do
   #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/PingFederate.78200.Development.lic'
   bucket "colonysecurity-apps"
   remote_path "/PINGFed/PingFederate.78200.Development.lic"
@@ -115,7 +115,7 @@ s3_file '/pingfederate/server/default/conf/pingfederate.lic' do
   group 'pingfed'
   mode '0775'
   action :create
-  not_if { ::File.exists?('/pingfederate/server/default/conf/pingfederate.lic') }
+  not_if { ::File.exists?('/var/ping/pingfederate/server/default/conf/pingfederate.lic') }
 end
 
 

@@ -94,22 +94,61 @@ file '/etc/rc.d/init.d/pingfed' do
   action :create
 end
 
-remote_file '/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip' do
-  source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/pingfederate-data-04-14-2016.zip'
+#remote_file '/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip' do
+#  source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/pingfederate-data-04-14-2016.zip'
+#  owner 'pingfed'
+#  group 'pingfed'
+#  mode '0775'
+#  action :create
+#  not_if { ::File.exists?('/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip') }
+#end
+#
+#remote_file '/pingfederate/server/default/conf/pingfederate.lic' do
+#  source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/PingFederate.78200.Development.lic'
+#  owner 'pingfed'
+#  group 'pingfed'
+#  mode '0775'
+#  action :create
+#  not_if { ::File.exists?('/pingfederate/server/default/conf/pingfederate.lic') }
+#end
+
+require 'aws-sdk'
+
+s3 = AWS::S3.new
+
+# Set bucket and object name
+obj = s3.buckets['colonysecurity-apps'].objects['PINGFed/pingfederate-data-04-14-2016.zip']
+
+# Read content to variable
+file_content = obj.read
+
+# Log output (optional)
+Chef::Log.info(file_content)
+
+# Write content to file
+file '/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip' do
   owner 'pingfed'
   group 'pingfed'
   mode '0775'
+  content file_content
   action :create
-  not_if { ::File.exists?('/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip') }
 end
 
-remote_file '/pingfederate/server/default/conf/pingfederate.lic' do
-  source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/PingFederate.78200.Development.lic'
+obj = s3.buckets['colonysecurity-apps'].objects['PINGFed/PingFederate.78200.Development.lic']
+
+# Read content to variable
+file_content = obj.read
+
+# Log output (optional)
+Chef::Log.info(file_content)
+
+# Write content to file
+file '/pingfederate/server/default/conf/pingfederate.lic' do
   owner 'pingfed'
   group 'pingfed'
   mode '0775'
+  content file_content
   action :create
-  not_if { ::File.exists?('/pingfederate/server/default/conf/pingfederate.lic') }
 end
 
 script 'start_service' do

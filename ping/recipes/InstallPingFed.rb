@@ -7,6 +7,7 @@ package 'unzip'
 user 'pingfed' do
   comment 'pingfed'
   system true
+  home '/home/pingfed'
   shell '/bin/bash'
 end
 

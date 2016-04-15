@@ -31,7 +31,7 @@ execute 'extract_ping' do
 end
 
 execute 'move_ping' do
-  command 'mv /var/ping/pingfederate-8.1.2/pingfederate ..'
+  command 'mv /var/ping/pingfederate-8.1.2/pingfederate .'
   cwd '/var/ping'
 end
 

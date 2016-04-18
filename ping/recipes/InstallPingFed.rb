@@ -120,5 +120,6 @@ script 'start_service' do
 	ln -s /etc/rc.d/init.d/pingfed /etc/rc2.d/K15pingfed
 	chmod 755 /etc/rc.d/init.d/pingfed
 	#service pingfed start
+	chown -R pingfed /var/ping/pingfederate-8.1.2
   	EOH
 end

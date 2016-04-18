@@ -111,14 +111,14 @@ script 'start_service' do
   interpreter "bash"
   cwd '/home/ec2-user'
   code <<-EOH
-  	ln -s /etc/rc.d/init.d/<pf_user> /etc/rc3.d/S84pingfed
-	ln -s /etc/rc.d/init.d/<pf_user> /etc/rc5.d/S84pingfed
-	ln -s /etc/rc.d/init.d/<pf_user> /etc/rc4.d/S84pingfed
-	ln -s /etc/rc.d/init.d/<pf_user> /etc/rc6.d/K15pingfed
-	ln -s /etc/rc.d/init.d/<pf_user> /etc/rc0.d/K15pingfed
-	ln -s /etc/rc.d/init.d/<pf_user> /etc/rc1.d/K15pingfed
-	ln -s /etc/rc.d/init.d/<pf_user> /etc/rc2.d/K15pingfed
+  	ln -s /etc/rc.d/init.d/pingfed /etc/rc3.d/S84pingfed
+	ln -s /etc/rc.d/init.d/pingfed /etc/rc5.d/S84pingfed
+	ln -s /etc/rc.d/init.d/pingfed /etc/rc4.d/S84pingfed
+	ln -s /etc/rc.d/init.d/pingfed /etc/rc6.d/K15pingfed
+	ln -s /etc/rc.d/init.d/pingfed /etc/rc0.d/K15pingfed
+	ln -s /etc/rc.d/init.d/pingfed /etc/rc1.d/K15pingfed
+	ln -s /etc/rc.d/init.d/pingfed /etc/rc2.d/K15pingfed
 	chmod 755 /etc/rc.d/init.d/pingfed
-	service pingfed start
+	#service pingfed start
   	EOH
 end

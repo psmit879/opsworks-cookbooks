@@ -52,7 +52,6 @@ file '/etc/rc.d/init.d/pingfed' do
   mode '0755'
   content <<-EOH
 	#! /bin/sh
-
    start(){
       echo "starting PingFederate.."
       su - pingfed \
@@ -65,7 +64,6 @@ file '/etc/rc.d/init.d/pingfed' do
       -c '/var/ping/pingfederate/sbin/\
          pingfederate-shutdown.sh'
    }
-
    restart(){
       stop
    # padding time to stop before restart
@@ -95,17 +93,7 @@ file '/etc/rc.d/init.d/pingfed' do
    EOH
   action :create
 end
-#https://github.com/adamsb6/s3_file
-s3_file '/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip' do
-  #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/pingfederate-data-04-14-2016.zip'
-  bucket "colonysecurity-apps"
-  remote_path "/PINGFed/pingfederate-data-04-14-2016.zip"
-  owner 'pingfed'
-  group 'pingfed'
-  mode '0775'
-  action :create
-  not_if { ::File.exists?('/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip') }
-end
+
 
 s3_file '/var/ping/pingfederate/server/default/conf/pingfederate.lic' do
   #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/PingFederate.78200.Development.lic'

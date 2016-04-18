@@ -1,6 +1,6 @@
-execute 'rm /var/ping/pingfederate/server/default/conf/tcp.xml -y'
+execute 'rm -f /var/ping/pingfederate/server/default/conf/tcp.xml'
 
-execute 'rm /var/ping/pingfederate/bin/run.properties -y'
+execute 'rm -f /var/ping/pingfederate/bin/run.properties'
 
 s3_file '/var/ping/pingfederate/server/default/conf/tcp.xml' do
   #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/tcp.xml'
@@ -23,3 +23,5 @@ s3_file '/var/ping/pingfederate/bin/run.properties' do
   action :create
   #not_if { ::File.exists?('/var/ping/pingfederate/server/default/conf/pingfederate.lic') }
 end
+
+execute 'service pingfed start'

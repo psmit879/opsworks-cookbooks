@@ -2,7 +2,7 @@
 s3_file '/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip' do
   #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/pingfederate-data-04-14-2016.zip'
   bucket "colonysecurity-apps"
-  remote_path "/PINGFed/pingfederate-data-04-14-2016.zip"
+  remote_path "/PINGFed/pingfederate-data-04-18-2016.zip"
   owner 'pingfed'
   group 'pingfed'
   mode '0775'

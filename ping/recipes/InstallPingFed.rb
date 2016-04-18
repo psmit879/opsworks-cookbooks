@@ -54,14 +54,14 @@ file '/etc/rc.d/init.d/pingfed' do
 	#! /bin/sh
    start(){
       echo "starting PingFederate.."
-      su - pingfed \
-      -c '/var/ping/pingfederate-8.1.2/pingfederate/sbin/pingfederate-run.sh \
+      su - pingfed \\
+      -c '/var/ping/pingfederate-8.1.2/pingfederate/sbin/pingfederate-run.sh \\
       > /dev/null 2> /dev/null'
    }
    stop(){
       echo "stopping PingFederate.."
-      su - pingfed \
-      -c '/var/ping/pingfederate-8.1.2/pingfederate/sbin/\
+      su - pingfed \\
+      -c '/var/ping/pingfederate-8.1.2/pingfederate/sbin/\\
          pingfederate-shutdown.sh'
    }
    restart(){

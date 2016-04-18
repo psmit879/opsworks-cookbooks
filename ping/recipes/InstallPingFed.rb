@@ -41,10 +41,10 @@ execute 'extract_ping' do
   cwd '/var/ping'
 end
 
-execute 'move_ping' do
-  command 'mv /var/ping/pingfederate-8.1.2/pingfederate .'
-  cwd '/var/ping'
-end
+#execute 'move_ping' do
+#  command 'mv /var/ping/pingfederate-8.1.2/pingfederate .'
+#  cwd '/var/ping'
+#end
 
 file '/etc/rc.d/init.d/pingfed' do
   owner 'pingfed'
@@ -55,13 +55,13 @@ file '/etc/rc.d/init.d/pingfed' do
    start(){
       echo "starting PingFederate.."
       su - pingfed \
-      -c '/var/ping/pingfederate/sbin/pingfederate-run.sh \
+      -c '/var/ping/pingfederate-8.1.2/pingfederate/sbin/pingfederate-run.sh \
       > /dev/null 2> /dev/null'
    }
    stop(){
       echo "stopping PingFederate.."
       su - pingfed \
-      -c '/var/ping/pingfederate/sbin/\
+      -c '/var/ping/pingfederate-8.1.2/pingfederate/sbin/\
          pingfederate-shutdown.sh'
    }
    restart(){

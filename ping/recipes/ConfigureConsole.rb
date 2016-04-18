@@ -1,5 +1,5 @@
 #https://github.com/adamsb6/s3_file
-s3_file '/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip' do
+s3_file '/var/ping/pingfederate-8.1.2/pingfederate/server/default/data/drop-in-deployer/data.zip' do
   #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/pingfederate-data-04-14-2016.zip'
   bucket "colonysecurity-apps"
   remote_path "/PINGFed/pingfederate-data-04-18-2016.zip"
@@ -10,7 +10,7 @@ s3_file '/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip' d
   not_if { ::File.exists?('/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip') }
 end
 
-s3_file '/var/ping/pingfederate/server/default/conf/pingfederate.lic' do
+s3_file '/var/ping/pingfederate-8.1.2/pingfederate/server/default/conf/pingfederate.lic' do
   #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/PingFederate.78200.Development.lic'
   bucket "colonysecurity-apps"
   remote_path "/PINGFed/PingFederate.78200.Development.lic"

@@ -60,9 +60,7 @@ file '/etc/rc.d/init.d/pingfed' do
    }
    stop(){
       echo "stopping PingFederate.."
-      su - pingfed \\
-      -c '/var/ping/pingfederate-8.1.2/pingfederate/sbin/\\
-         pingfederate-shutdown.sh'
+      su - pingfed -c '/var/ping/pingfederate-8.1.2/pingfederate/sbin/pingfederate-shutdown.sh'
    }
    restart(){
       stop

@@ -14,6 +14,17 @@ s3_file '/var/ping/pingfederate-8.1.2/pingfederate/server/default/conf/tcp.xml' 
   #not_if { ::File.exists?('/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip') }
 end
 
+s3_file '/var/ping/pingfederate-8.1.2/bin/ldap.properties' do
+  #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/tcp.xml'
+  bucket "colonysecurity-apps"
+  remote_path "/PINGFed/ldap.properties"
+  owner 'pingfed'
+  group 'pingfed'
+  mode '0775'
+  action :create
+  #not_if { ::File.exists?('/var/ping/pingfederate/server/default/data/drop-in-deployer/data.zip') }
+end
+
 s3_file '/var/ping/pingfederate-8.1.2/pingfederate/server/default/data/drop-in-deployer/data.zip' do
   #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/pingfederate-data-04-14-2016.zip'
   bucket "colonysecurity-apps"

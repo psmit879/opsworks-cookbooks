@@ -79,4 +79,6 @@ s3_file '/var/ping/pingfederate-8.1.2/pingfederate/bin/run.properties' do
   #not_if { ::File.exists?('/var/ping/pingfederate/server/default/conf/pingfederate.lic') }
 end
 
+execute 'chown -R pingfed /var/ping'
+
 execute 'service pingfed start'

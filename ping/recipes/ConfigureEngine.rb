@@ -54,4 +54,6 @@ s3_file '/var/ping/pingfederate-8.1.2/pingfederate/bin/run.properties' do
   #not_if { ::File.exists?('/var/ping/pingfederate/server/default/conf/pingfederate.lic') }
 end
 
+execute 'sed -i 's/pf.cluster.node.index=8/pf.cluster.node.index=10/g' /var/ping/pingfederate-8.1.2/pingfederate/bin/run.properties'
+
 execute 'service pingfed start'

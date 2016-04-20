@@ -71,7 +71,7 @@ end
 s3_file '/var/ping/pingfederate-8.1.2/pingfederate/bin/run.properties' do
   #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/run.properties'
   bucket "colonysecurity-apps"
-  remote_path "/PINGFed/run.properties"
+  remote_path "/PINGFed/run.properties-CONSOLE"
   owner 'pingfed'
   group 'pingfed'
   mode '0775'

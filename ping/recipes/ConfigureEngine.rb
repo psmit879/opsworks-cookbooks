@@ -64,6 +64,13 @@ s3_file '/var/ping/pingfederate-8.1.2/pingfederate/bin/run.properties' do
 end
 
 #execute 'sed -i 's/pf.cluster.node.index=8/pf.cluster.node.index=10/g' /var/ping/pingfederate-8.1.2/pingfederate/bin/run.properties'
+template '/var/ping/pingfederate-8.1.2/pingfederate/bin/run.properties' do
+  source '/var/ping/pingfederate-8.1.2/pingfederate/bin/run.properties'
+  variables({
+    :clusterID => '99'
+  })
+  not_if { ::File.exists?('/var/ping/configureComplete') }
+end
 
 file '/var/ping/configureComplete' do
   content 'This is a flag that prevents the configure recipe from running a 2nd time'

@@ -11,6 +11,7 @@ user 'pingfed' do
   system true
   home '/home/pingfed'
   shell '/bin/bash'
+  not_if { ::File.exists?('/var/ping/configureComplete') }
 end
 
 directory '/var/ping' do
@@ -18,6 +19,7 @@ directory '/var/ping' do
   group 'pingfed'
   mode '0775'
   action :create
+  not_if { ::File.exists?('/var/ping/configureComplete') }
 end
 
 directory '/home/pingfed' do
@@ -25,6 +27,7 @@ directory '/home/pingfed' do
   group 'pingfed'
   mode '0775'
   action :create
+  not_if { ::File.exists?('/var/ping/configureComplete') }
 end
 
 remote_file '/var/ping/pingfederate-8.1.2.zip' do
@@ -39,6 +42,7 @@ end
 execute 'extract_ping' do
   command 'unzip pingfederate-8.1.2.zip -d /var/ping'
   cwd '/var/ping'
+  not_if { ::File.exists?('/var/ping/configureComplete') }
 end
 
 #execute 'move_ping' do
@@ -90,6 +94,7 @@ file '/etc/rc.d/init.d/pingfed' do
    exit 0
    EOH
   action :create
+  not_if { ::File.exists?('/var/ping/configureComplete') }
 end
 
 
@@ -120,4 +125,5 @@ script 'start_service' do
 	#service pingfed start
 	chown -R pingfed /var/ping/pingfederate-8.1.2
   	EOH
+  not_if { ::File.exists?('/var/ping/configureComplete') }
 end

@@ -28,7 +28,7 @@ end
 
 package 'vShell' do
   action :install
-  option '/s'
+  options '/s'
   source 'C:\tmp\vShell\vShellInstall\vshell-ftps-x64.4.2.0.980.exe'
   not_if { ::File.exists?('C:\Program Files\VShell') }
 end

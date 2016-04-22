@@ -68,7 +68,7 @@ template '/var/ping/pingfederate-8.1.2/pingfederate/bin/run.properties' do
   source '/var/ping/pingfederate-8.1.2/pingfederate/bin/run.properties'
   local true
   variables({
-    :clusterID => '99'
+    :clusterID => Random.rand(65534)
   })
   not_if { ::File.exists?('/var/ping/configureComplete') }
 end

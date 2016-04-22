@@ -13,6 +13,8 @@ end
 s3_file 'C:\tmp\vShell\vShellInstall.zip' do
   bucket "colonysecurity-apps"
   remote_path "/vShell/vShellInstall.zip"
+  owner 'Administrator'
+  group 'Administrators'
   action :create
   not_if { ::File.exists?('C:\tmp\vShell\vShellInstall.zip') }
 end

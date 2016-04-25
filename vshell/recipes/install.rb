@@ -25,10 +25,10 @@ windows_zipfile 'C:\tmp\vShell' do
   not_if { ::File.exists?('C:\tmp\vShell\vShellInstall') }
 end
 
- windows_package 'vShell' do
+package 'vShell' do
   action :install
   options '/s /v"qn"'
   source 'C:\tmp\vShell\vShellInstall\vshell-ftps-x64.4.2.0.980.exe'
-  installer_type :msi
+  installer_type :installshield
   not_if { ::File.exists?('C:\Program Files\VShell') }
 end

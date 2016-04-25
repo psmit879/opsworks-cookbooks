@@ -32,6 +32,6 @@ end
 #  installer_type "installshield"
 #  not_if { ::File.exists?('C:\Program Files\VShell') }
 #end
-execute 'apache_configtest' do
+execute 'install_vShell' do
   command 'C:\tmp\vShell\vShellInstall\vshell-ftps-x64.4.2.0.980.exe /s /v"/qn"'
 end

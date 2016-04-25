@@ -36,6 +36,8 @@ execute 'install_vShell' do
   command 'C:\tmp\vShell\vShellInstall\vshell-ftps-x64.4.2.0.980.exe /s /v"/qn"'
 end
 # NExt step would be to execute the config import
-
+execute 'configure_vShell' do
+  command '"C:\Program Files\VanDyke Software\VShell\VShellConfig.exe" import --include all C:\tmp\vShell\vShellInstall\all.xml --install-dir "C:\Program Files\VanDyke Software\VShell"'
+end
 # Then copy over the necessary conf files from 
 # 'C:\tmp\vShell\vShellInstall\VShell

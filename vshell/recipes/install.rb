@@ -35,3 +35,7 @@ end
 execute 'install_vShell' do
   command 'C:\tmp\vShell\vShellInstall\vshell-ftps-x64.4.2.0.980.exe /s /v"/qn"'
 end
+# NExt step would be to execute the config import
+
+# Then copy over the necessary conf files from 
+# 'C:\tmp\vShell\vShellInstall\VShell

@@ -27,7 +27,7 @@ end
 
  windows_package 'vShell' do
   action :install
-  options '/s'
+  options '/s /v\"qn\"'
   source 'C:\tmp\vShell\vShellInstall\vshell-ftps-x64.4.2.0.980.exe'
   installer_type :msi
   not_if { ::File.exists?('C:\Program Files\VShell') }

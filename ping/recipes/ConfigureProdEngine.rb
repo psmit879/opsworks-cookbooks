@@ -14,7 +14,7 @@ end
 s3_file '/var/ping/pingfederate-8.1.2/pingfederate/server/default/conf/tcp.xml' do
   #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/tcp.xml'
   bucket "colonybrands-security-apps"
-  remote_path "/PINGFed/tcp.xml"
+  remote_path "/PINGFed/tcp.xml-PROD"
   owner 'pingfed'
   group 'pingfed'
   mode '0775'
@@ -55,7 +55,7 @@ end
 s3_file '/var/ping/pingfederate-8.1.2/pingfederate/bin/run.properties' do
   #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/run.properties'
   bucket "colonybrands-security-apps"
-  remote_path "/PINGFed/run.properties"
+  remote_path "/PINGFed/run.properties-PRODENGINE"
   owner 'pingfed'
   group 'pingfed'
   mode '0775'

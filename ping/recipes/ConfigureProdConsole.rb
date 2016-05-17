@@ -55,7 +55,7 @@ s3_file '/var/ping/pingfederate-8.1.2/pingfederate/server/default/deploy/common-
   not_if { ::File.exists?('/var/ping/configureComplete') }
 end
 
-s3_file '/var/ping/pingfederate-8.1.2/bin/ldap.properties' do
+s3_file '/var/ping/pingfederate-8.1.2/pingfederate/bin/ldap.properties' do
   #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/tcp.xml'
   bucket "colonybrands-security-apps"
   remote_path "/PINGFed/ldap.properties"

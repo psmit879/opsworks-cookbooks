@@ -58,7 +58,7 @@ end
 s3_file '/var/ping/pingfederate-8.1.2/pingfederate/bin/ldap.properties' do
   #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/tcp.xml'
   bucket "colonybrands-security-apps"
-  remote_path "/PINGFed/ldap.properties"
+  remote_path "/PINGFed/ldap.properties-PROD"
   owner 'pingfed'
   group 'pingfed'
   mode '0775'

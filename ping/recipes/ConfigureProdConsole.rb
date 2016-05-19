@@ -35,6 +35,16 @@ s3_file '/var/ping/pingfederate-8.1.2/pingfederate/server/default/deploy/pf-ping
   not_if { ::File.exists?('/var/ping/configureComplete') }
 end
 
+s3_file '/var/ping/pingfederate-8.1.2/pingfederate/server/default/deploy/PingIDRadiusPCV-1.3.0.jar' do
+  bucket "colonybrands-security-apps"
+  remote_path "/PINGFed/PingIDRadiusPCV-1.3.0.jar"
+  owner 'pingfed'
+  group 'pingfed'
+  mode '0775'
+  action :create
+  not_if { ::File.exists?('/var/ping/configureComplete') }
+end
+
 s3_file '/var/ping/pingfederate-8.1.2/pingfederate/server/default/deploy/gson-2.2.4.jar' do
   bucket "colonybrands-security-apps"
   remote_path "/PINGFed/gson-2.2.4.jar"

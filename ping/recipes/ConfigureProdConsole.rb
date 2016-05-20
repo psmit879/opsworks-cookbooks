@@ -111,6 +111,17 @@ s3_file '/var/ping/pingfederate-8.1.2/pingfederate/bin/run.properties' do
   not_if { ::File.exists?('/var/ping/configureComplete') }
 end
 
+s3_file '/var/ping/pingfederate-8.1.2/pingfederate/bin/radius.properties' do
+  #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/run.properties'
+  bucket "colonybrands-security-apps"
+  remote_path "/PINGFed/radius.properties-PRODCONSOLE"
+  owner 'pingfed'
+  group 'pingfed'
+  mode '0775'
+  action :create
+  not_if { ::File.exists?('/var/ping/configureComplete') }
+end
+
 execute 'chown -R pingfed /var/ping'
 
 file '/var/ping/configureComplete' do

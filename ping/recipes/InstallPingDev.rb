@@ -31,7 +31,7 @@ directory '/home/pingfed' do
 end
 
 remote_file '/var/ping/pingfederate-8.1.2.zip' do
-  source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/pingfederate-8.1.2.zip'
+  source 'https://s3.amazonaws.com/colonybrands-security-dev/PINGFed/pingfederate-8.1.2.zip'
   owner 'pingfed'
   group 'pingfed'
   mode '0775'

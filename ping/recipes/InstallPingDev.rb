@@ -30,13 +30,15 @@ directory '/home/pingfed' do
   not_if { ::File.exists?('/var/ping/configureComplete') }
 end
 
-remote_file '/var/ping/pingfederate-8.1.2.zip' do
-  source 'https://s3.amazonaws.com/colonybrands-security-dev/PINGFed/pingfederate-8.1.2.zip'
+s3_file '/var/ping/pingfederate-8.1.2.zip' do
+  #source 'https://s3.amazonaws.com/colonysecurity-apps/PINGFed/tcp.xml'
+  bucket "colonybrands-security-dev"
+  remote_path "/PINGFed/pingfederate-8.1.2.zip"
   owner 'pingfed'
   group 'pingfed'
   mode '0775'
   action :create
-  not_if { ::File.exists?('/var/ping/pingfederate-8.1.2.zip') }
+  not_if { ::File.exists?('/var/ping/configureComplete') }
 end
 
 execute 'extract_ping' do

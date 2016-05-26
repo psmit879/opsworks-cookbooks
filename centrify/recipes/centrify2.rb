@@ -23,7 +23,6 @@ script 'join_domain' do
 	echo SecurityUsers | tee -a /etc/centrifydc/groups.allow
 	echo 'smith_p ALL=(ALL:ALL) ALL'|tee -a /etc/sudoers
 	echo '%SecurityUsers ALL=(ALL:ALL) ALL'|tee -a /etc/sudoers
-	adjoin --user SACentrify --password Ws7N\\`\\*qhYbKu4j\\;cm@=mWaNq= -w sccompanies.com
 	reboot
     EOH
 end

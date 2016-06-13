@@ -5,10 +5,12 @@ end
 execute 'Get Vagrant' do
 	command 'wget https://releases.hashicorp.com/vagrant/1.8.3/vagrant_1.8.3_x86_64.rpm'
 	creates 'vagrant_1.8.3_x86_64.rpm'
+	notifies :run, 'execute[Install Vagrant via RPM]', :immediately
 end 
 
 execute 'Install Vagrant via RPM'	do
 	command 'rpm -i vagrant_1.8.3_x86_64.rpm'
+	action :nothing
 end
 
 execute 'install aws plugin' do

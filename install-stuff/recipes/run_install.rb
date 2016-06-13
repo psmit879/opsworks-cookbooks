@@ -11,6 +11,7 @@ end
 execute 'Install Vagrant via RPM'	do
 	command 'rpm -i vagrant_1.8.1_x86_64.rpm'
 	action :nothing
+	ignore_failure true
 end
 
 execute 'install aws plugin' do

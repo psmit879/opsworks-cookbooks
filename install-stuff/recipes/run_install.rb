@@ -1,3 +1,6 @@
+execute 'su' do 
+	command 'sudo su'
+end
 
 execute 'Get Vagrant' do
 	command 'wget https://releases.hashicorp.com/vagrant/1.8.3/vagrant_1.8.3_x86_64.rpm'

@@ -8,6 +8,14 @@ execute 'Install Vagrant via RPM'	do
 	command 'rpm -i vagrant_1.8.3_x86_64.rpm'
 end
 
+execute 'update ruby and rubygems' do
+	command 'ruby update'
+end
+
+execute 'update rubygems' do
+	command 'yum install rubygems'
+end
+
 execute 'install aws plugin' do
 	command 'vagrant plugin install vagrant-aws'
 end 
